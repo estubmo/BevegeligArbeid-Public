@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--=====================================================
+AUTHOR: Jørgen Nyborg & Eirik Stub Mo 
+NOTES:
+======================================================-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BevegeligArbeid.Views.MasterPage"
+             x:Name="MasterPage"
+             BackgroundColor="White"
+             Padding="0,40,0,0"
+             Title="Meny"
+            	>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <ListView x:Name="listView" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding Title}" ImageSource="{Binding IconSource}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

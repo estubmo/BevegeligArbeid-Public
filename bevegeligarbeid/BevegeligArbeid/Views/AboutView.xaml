@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--=====================================================
+AUTHOR: Jørgen Nyborg & Eirik Stub Mo 
+NOTES:
+======================================================-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:ViewModels="clr-namespace:BevegeligArbeid.ViewModels;assembly=BevegeligArbeid"
+		x:Class="BevegeligArbeid.Views.AboutView" 
+    x:Name="About"
+    BackgroundColor="White"
+    Title="{Binding Title}">
+	<ContentPage.BindingContext>
+    		<ViewModels:AboutViewModel/>
+  	</ContentPage.BindingContext>
+
+
+	<AbsoluteLayout x:Name="AboutLayout" >
+
+
+		<Image Source="TrionaLogo.png" 
+			AbsoluteLayout.LayoutBounds="0.5,0.05, 0.3, 0.3"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+		<Label Text="{Binding CompanyName}" Font="Bold, 40" XAlign="Center" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.3,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+		<Label Text="{Binding AppName}" Font="22" XAlign="Center" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.45,0.95,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+		<Label Text="{Binding Version}" Font="20" XAlign="Center" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.55,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+		<Label Text="{Binding LicencedTo}" Font="20" XAlign="Center" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.65,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+		<Label Text="{Binding LicenceHolder}" Font="Bold, 20" XAlign="Center" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.72,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+	</AbsoluteLayout>
+</ContentPage>

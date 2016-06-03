@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--=====================================================
+AUTHOR: Jørgen Nyborg & Eirik Stub Mo 
+NOTES:
+======================================================-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:local="clr-namespace:BevegeligArbeid;assembly=BevegeligArbeid"
+		xmlns:ViewModels="clr-namespace:BevegeligArbeid.ViewModels;assembly=BevegeligArbeid"
+		x:Class="BevegeligArbeid.Views.PlanListView"
+    x:Name="PlanList"
+    Title="{Binding Title}"
+    BackgroundColor="White">
+  <ContentPage.BindingContext>
+    <ViewModels:PlanListViewModel/>
+  </ContentPage.BindingContext>
+
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="FillAndExpand">
+      <ListView x:Name="planList" ItemsSource="{Binding list}" RowHeight="110" VerticalOptions="FillAndExpand">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <Grid>
+                <Grid.ColumnDefinitions>
+                 		<ColumnDefinition Width="3*"/>
+                 		<ColumnDefinition Width="*" />
+             		</Grid.ColumnDefinitions>
+                  <StackLayout Grid.Column="0" Grid.Row="0" Padding="10, 5, 0, 0" Spacing="2">
+                    <Label Text="{Binding PlanNr}" TextColor="Black" FontSize="20" />
+                    <Label Text="{Binding Description}" TextColor="Black" FontSize="12" />
+                    <Label Text="{Binding RoadName}" TextColor="Black" FontSize="12" />
+                    <Label Text="{Binding Stretch}" TextColor="Black" FontSize="12" />
+                    <Label Text="{Binding Date}" TextColor="Black" FontSize="12" />
+                  </StackLayout>
+                  <StackLayout Grid.Column="1" Grid.Row="0" Padding="10, 5, 10, 0" Spacing="2">
+                    <Label Text="{Binding IsActiveLogText}" TextColor="Green" FontSize="20" XAlign="End" YAlign="Center"/>
+                  </StackLayout>
+                </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

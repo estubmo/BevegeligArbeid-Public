@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!--=====================================================
+AUTHOR: Jørgen Nyborg & Eirik Stub Mo 
+NOTES:
+======================================================-->
+<ContentPage 	xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ViewModels="clr-namespace:BevegeligArbeid.ViewModels;assembly=BevegeligArbeid"
+    x:Class="BevegeligArbeid.Views.LoginView"
+    x:Name="Login"
+ 		BackgroundColor="White"
+ 		Title="{Binding Title}"
+   >
+  <ContentPage.BindingContext>
+    <ViewModels:LoginViewModel/>
+  </ContentPage.BindingContext>
+
+  <ScrollView>
+  <StackLayout>
+  <AbsoluteLayout VerticalOptions="FillAndExpand">
+    <Image Source="TrionaLogo.png"
+			AbsoluteLayout.LayoutBounds="0.5,0.15, 0.5, 0.5"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Label Text="{Binding AppName}" Font="Bold, 16" XAlign="Center" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.55,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Label Text="{Binding ContactInfo}" Font="10" XAlign="Center" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.63,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Label Text="{Binding Status}" HorizontalOptions="FillAndExpand"  XAlign="Center" TextColor="Red" Font="10"
+			AbsoluteLayout.LayoutBounds="0.5,0.67,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+
+    <Entry Placeholder="{Binding UsernamePlaceholder}"  Text="{Binding Username}" HorizontalOptions="FillAndExpand"  Keyboard="Email" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.7,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Entry Placeholder="{Binding PasswordPlaceholder}" Text="{Binding Password}" HorizontalOptions="FillAndExpand"  IsPassword="true" TextColor="Black"
+			AbsoluteLayout.LayoutBounds="0.5,0.83,0.8,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Button Text="{Binding LoginButtonText}" Command="{Binding LoginCommand}"  IsEnabled="{Binding NotIsBusy}"
+    			AbsoluteLayout.LayoutBounds="0.5,0.93,0.5,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+    <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center"
+			AbsoluteLayout.LayoutBounds="0.5,0.55,0.5,0.1"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+  </AbsoluteLayout>
+	</StackLayout>
+	</ScrollView>
+</ContentPage>

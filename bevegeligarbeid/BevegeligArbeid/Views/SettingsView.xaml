@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--=====================================================
+AUTHOR: Jørgen Nyborg & Eirik Stub Mo 
+NOTES:
+======================================================-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="BevegeligArbeid.Views.SettingsView" 
+		xmlns:local="clr-namespace:BevegeligArbeid;assembly=BevegeligArbeid"
+		xmlns:ViewModels="clr-namespace:BevegeligArbeid.ViewModels;assembly=BevegeligArbeid"
+		xmlns:b="clr-namespace:Xamarin.Behaviors;assembly=Xamarin.Behaviors"
+    x:Name="SettingsView"
+		Title="{Binding Title}" BackgroundColor="Gray">
+	<ContentPage.BindingContext>
+    		<ViewModels:SettingsViewModel/>
+  	</ContentPage.BindingContext>
+
+	<ScrollView>
+  	   <StackLayout>
+  	      <AbsoluteLayout VerticalOptions="FillAndExpand">
+		<Grid RowSpacing="5" ColumnSpacing="0" >
+			<Grid.ColumnDefinitions>
+                 		<ColumnDefinition Width="2*"/>
+                 		<ColumnDefinition Width="*" />
+             		</Grid.ColumnDefinitions>
+
+                  <StackLayout BackgroundColor="White" Grid.Column="0" Grid.Row="0" Padding="10, 5, 0, 10">
+                    <Label Text="{Binding MaxSpeedTitle}" TextColor="Black" FontSize="20" />
+                    <Label Text="{Binding MaxSpeedDesc}" TextColor="Black" FontSize="12"/>
+                  </StackLayout>
+                  <StackLayout BackgroundColor="White" Grid.Column="1" Grid.Row="0" Padding="10, 5, 10, 10" >
+                    <Entry Keyboard="Numeric" Text="{Binding MaxSpeedValue}" TextColor="Green" HorizontalTextAlignment="Center" FontSize="30"/>
+                  </StackLayout>
+
+                  <StackLayout BackgroundColor="White" Grid.Column="0" Grid.Row="1" Padding="10, 5, 0, 10">
+                    <Label Text="{Binding LogEntryTimeTitle}" TextColor="Black" FontSize="20" />
+                    <Label Text="{Binding LogEntryTimeDesc}" TextColor="Black" FontSize="12" />
+                  </StackLayout>
+                  <StackLayout BackgroundColor="White" Grid.Column="1" Grid.Row="1" Padding="0, 5, 10, 10">
+                       <Entry Keyboard="Numeric" Text="{Binding LogEntryTimeValue}" TextColor="Green" HorizontalTextAlignment="Center" FontSize="30"/>
+                  </StackLayout>
+                </Grid>
+	     </AbsoluteLayout>
+           </StackLayout>
+        </ScrollView>
+</ContentPage>

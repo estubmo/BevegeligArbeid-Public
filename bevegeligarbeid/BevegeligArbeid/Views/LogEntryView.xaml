@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--=====================================================
+AUTHOR: Jørgen Nyborg & Eirik Stub Mo 
+NOTES:
+======================================================-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:local="clr-namespace:BevegeligArbeid;assembly=BevegeligArbeid"
+		xmlns:ViewModels="clr-namespace:BevegeligArbeid.ViewModels;assembly=BevegeligArbeid"
+		x:Class="BevegeligArbeid.Views.LogEntryView" Title="{Binding Title}" BackgroundColor="White">
+  <ContentPage.BindingContext>
+    <ViewModels:LogEntryViewModel/>
+  </ContentPage.BindingContext>
+
+  <AbsoluteLayout>
+    
+    <StackLayout VerticalOptions="FillAndExpand"
+			AbsoluteLayout.LayoutBounds="0,0.1,1,0.4"
+			AbsoluteLayout.LayoutFlags="All">
+      <Label Text="Punkter" TextColor="Black" FontSize="20" XAlign="Center"/>
+      <ListView x:Name="pointList" ItemsSource="{Binding list}" SelectedItem="{Binding selectedPoint}" RowHeight="80" VerticalOptions="FillAndExpand">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <StackLayout Padding="10, 5, 0, 0" Spacing="1">
+                  <Label Text="{Binding id}" TextColor="Black" FontSize="20" XAlign="Center"/>
+                  <!--<Label Text="{Binding status}" TextColor="Black" FontSize="20" XAlign="Center"/>-->
+                </StackLayout>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+    <Label Text="Tid til neste innslag:" Font="Bold, 12" XAlign="Start" TextColor="Black"
+AbsoluteLayout.LayoutBounds="0.3,0.6,0.4,0.1"
+AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Label Text="Antall innslag gjort:" Font="Bold, 12" XAlign="End" TextColor="Black"
+AbsoluteLayout.LayoutBounds="0.7,0.6,0.4,0.1"
+AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Label Text="{Binding TimeToNextEntry}" Font="Bold, 30" XAlign="Center" TextColor="Black"
+AbsoluteLayout.LayoutBounds="0.3,0.7,0.4,0.1"
+AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Label Text="{Binding LogEntryCounter}" Font="Bold, 30" XAlign="Center" TextColor="Black"
+AbsoluteLayout.LayoutBounds="0.7,0.7,0.4,0.1"
+AbsoluteLayout.LayoutFlags="All"
+		/>
+    <Button Text="{Binding LogButtonText}" Command="{Binding ToggleLogCommand}"  IsEnabled="{Binding pointIsSelected}"
+    			AbsoluteLayout.LayoutBounds="0.5,0.9,0.8,0.15"
+			AbsoluteLayout.LayoutFlags="All"
+		/>
+  </AbsoluteLayout>
+</ContentPage>
